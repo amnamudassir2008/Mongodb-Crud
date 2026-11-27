@@ -1,0 +1,1009 @@
+/* =========================================================
+   STUDENT MANAGEMENT SYSTEM
+   Theme: Dark Purple + Pink + Cyan
+   ========================================================= */
+
+:root {
+  --auth-outer: #463f6f;
+  --auth-panel: #2a2551;
+  --auth-card: #3a3464;
+  --auth-card-2: #4a4478;
+  --auth-field: rgba(255, 255, 255, 0.14);
+
+  --auth-text: #f4f2ff;
+  --auth-muted: #b8b3dc;
+  --auth-border: rgba(255, 255, 255, 0.14);
+
+  --auth-primary: #ff4f8b;
+  --auth-primary-dark: #e8386f;
+
+  --auth-cyan: #22d3ee;
+  --auth-green: #22e58f;
+  --auth-orange: #ffb020;
+  --auth-violet: #8b7cf6;
+  --auth-blue: #3b82f6;
+  --auth-red: #ff4d6d;
+
+  --auth-error-bg: rgba(255, 77, 109, 0.16);
+  --auth-error: #ff9fb0;
+
+  --auth-success-bg: rgba(34, 229, 143, 0.14);
+  --auth-success: #6df2b8;
+
+  --dash-bg: #0c0a24;
+  --dash-card: #15132f;
+  --dash-card-2: #1c1a3f;
+  --dash-line: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--dash-bg);
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  color: var(--auth-text);
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =========================================================
+   LOGIN / SIGNUP
+   ========================================================= */
+
+.auth-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 18px;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(108, 92, 231, 0.35),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(255, 79, 139, 0.2),
+      transparent 35%
+    ),
+    #0c0a24;
+}
+
+/* Main login card */
+
+.auth-form {
+  width: 100%;
+  max-width: 390px;
+
+  padding: 38px 32px 32px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(74, 68, 120, 0.95),
+      rgba(42, 37, 81, 0.97)
+    );
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Heading */
+
+.auth-form h2 {
+  margin: 0 0 8px;
+  text-align: center;
+
+  font-size: 2rem;
+  line-height: 1.1;
+  font-weight: 700;
+
+  color: #ffffff;
+}
+
+.auth-form h2::after {
+  content: "";
+  display: block;
+
+  width: 45px;
+  height: 4px;
+
+  margin: 12px auto 24px;
+
+  border-radius: 20px;
+
+  background: var(--auth-primary);
+}
+
+/* =========================================================
+   INPUT GROUP
+   ========================================================= */
+
+.input-group {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: 48px;
+
+  margin-bottom: 16px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+
+  color: var(--auth-muted);
+}
+
+.input-group > svg {
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.input-group input {
+  width: 100%;
+  height: 46px;
+
+  padding: 0 38px 0 2px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.input-group input::placeholder {
+  color: rgba(244, 242, 255, 0.58);
+}
+
+.input-group:focus-within {
+  border-bottom-color: var(--auth-primary);
+}
+
+/* Password eye */
+
+.password-toggle {
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: var(--auth-muted);
+}
+
+.password-toggle:hover {
+  color: var(--auth-primary);
+}
+
+/* =========================================================
+   CHECKBOX
+   ========================================================= */
+
+.terms,
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 15px 0;
+
+  color: var(--auth-muted);
+  font-size: 0.78rem;
+}
+
+.terms input,
+.remember input {
+  width: 14px;
+  height: 14px;
+
+  accent-color: var(--auth-primary);
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   MAIN AUTH BUTTON
+   ========================================================= */
+
+.auth-form > button[type="submit"] {
+  width: 100%;
+  height: 46px;
+
+  margin-top: 8px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: var(--auth-primary);
+
+  color: #ffffff;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  box-shadow: 0 8px 20px rgba(255, 79, 139, 0.22);
+
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
+}
+
+.auth-form > button[type="submit"]:hover {
+  background: var(--auth-primary-dark);
+  transform: translateY(-1px);
+
+  box-shadow: 0 10px 25px rgba(255, 79, 139, 0.32);
+}
+
+.auth-form > button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================================================
+   BOTTOM SWITCH LOGIN / SIGNUP
+   ========================================================= */
+
+.auth-form > p {
+  margin: 16px 0 0;
+
+  text-align: center;
+
+  color: var(--auth-muted);
+  font-size: 0.75rem;
+}
+
+.auth-form > p button {
+  display: block;
+
+  width: 100%;
+
+  margin-top: 8px;
+  padding: 9px 12px;
+
+  border: 1px solid var(--auth-primary);
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: var(--auth-primary);
+
+  font-size: 0.82rem;
+  font-weight: 600;
+
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.auth-form > p button:hover {
+  background: var(--auth-primary);
+  color: #ffffff;
+}
+
+/* =========================================================
+   ERROR / SUCCESS
+   ========================================================= */
+
+.error-message,
+.info-message {
+  width: 100%;
+
+  margin-bottom: 15px;
+  padding: 10px 12px;
+
+  border-radius: 7px;
+
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.error-message {
+  background: var(--auth-error-bg);
+  border: 1px solid rgba(255, 77, 109, 0.25);
+  color: var(--auth-error);
+}
+
+.info-message {
+  background: var(--auth-success-bg);
+  border: 1px solid rgba(34, 229, 143, 0.25);
+  color: var(--auth-success);
+}
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.dashboard {
+  min-height: 100vh;
+  padding: 30px;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(108, 92, 231, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(255, 79, 139, 0.08),
+      transparent 30%
+    ),
+    var(--dash-bg);
+
+  color: var(--auth-text);
+}
+
+.dashboard-header {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto 22px;
+
+  padding: 22px 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid var(--dash-line);
+  border-radius: 14px;
+
+  background: rgba(21, 19, 47, 0.95);
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.dashboard-header h1 {
+  margin: 0 0 5px;
+
+  font-size: 1.6rem;
+  color: #ffffff;
+}
+
+.dashboard-header p {
+  margin: 0;
+
+  color: var(--auth-muted);
+  font-size: 0.85rem;
+}
+
+.dashboard-header strong {
+  color: #ffffff;
+}
+
+/* Logout */
+
+.logout-btn {
+  padding: 10px 18px;
+
+  border: 1px solid var(--auth-primary);
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: var(--auth-primary);
+
+  font-weight: 600;
+}
+
+.logout-btn:hover {
+  background: var(--auth-primary);
+  color: #ffffff;
+}
+
+/* =========================================================
+   DASHBOARD MAIN
+   ========================================================= */
+
+.dashboard-main {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: auto;
+}
+
+.dashboard-controls {
+  display: flex;
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+.search-input {
+  flex: 1;
+
+  height: 44px;
+
+  padding: 0 15px;
+
+  border: 1px solid var(--dash-line);
+  border-radius: 8px;
+
+  outline: none;
+
+  background: var(--dash-card);
+
+  color: #ffffff;
+}
+
+.search-input::placeholder {
+  color: var(--auth-muted);
+}
+
+.search-input:focus {
+  border-color: var(--auth-primary);
+}
+
+.add-student-btn {
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: var(--auth-primary);
+
+  color: #ffffff;
+
+  font-weight: 600;
+}
+
+.add-student-btn:hover {
+  background: var(--auth-primary-dark);
+}
+
+/* =========================================================
+   STUDENT FORM
+   ========================================================= */
+
+.student-form-card {
+  margin-bottom: 20px;
+  padding: 20px;
+
+  border: 1px solid var(--dash-line);
+  border-radius: 12px;
+
+  background: var(--dash-card);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+}
+
+.form-header h2 {
+  margin: 0;
+
+  font-size: 1.05rem;
+}
+
+.close-btn {
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: #ffffff;
+
+  font-size: 1.2rem;
+}
+
+.close-btn:hover {
+  background: var(--auth-red);
+}
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 10px;
+}
+
+.form-grid input {
+  width: 100%;
+  height: 42px;
+
+  padding: 0 12px;
+
+  border: 1px solid var(--dash-line);
+  border-radius: 7px;
+
+  outline: none;
+
+  background: var(--dash-card-2);
+
+  color: #ffffff;
+}
+
+.form-grid input::placeholder {
+  color: var(--auth-muted);
+}
+
+.form-grid input:focus {
+  border-color: var(--auth-primary);
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+
+  margin-top: 14px;
+}
+
+.form-actions button {
+  padding: 9px 17px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: var(--auth-primary);
+
+  color: #ffffff;
+
+  font-weight: 600;
+}
+
+.form-actions button:last-child {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.form-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   STUDENTS SECTION
+   ========================================================= */
+
+.students-section {
+  padding: 20px;
+
+  border: 1px solid var(--dash-line);
+  border-radius: 12px;
+
+  background: var(--dash-card);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  margin: 0;
+
+  font-size: 1.05rem;
+}
+
+.section-heading span {
+  color: var(--auth-muted);
+  font-size: 0.78rem;
+}
+
+/* =========================================================
+   STUDENT GRID
+   ========================================================= */
+
+.students-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+.student-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 15px;
+
+  border: 1px solid var(--dash-line);
+  border-radius: 10px;
+
+  background: var(--dash-card-2);
+
+  transition:
+    transform 0.2s,
+    border-color 0.2s;
+}
+
+.student-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 79, 139, 0.35);
+}
+
+.student-avatar {
+  flex-shrink: 0;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  font-weight: 700;
+}
+
+.student-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.student-info h3 {
+  margin: 0 0 4px;
+
+  font-size: 0.9rem;
+
+  color: #ffffff;
+}
+
+.student-info p {
+  margin: 2px 0;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: var(--auth-muted);
+
+  font-size: 0.72rem;
+}
+
+.course-badge {
+  display: inline-block;
+
+  margin-top: 5px;
+  padding: 3px 8px;
+
+  border: 1px solid var(--auth-cyan);
+  border-radius: 20px;
+
+  color: var(--auth-cyan);
+
+  font-size: 0.62rem;
+  font-weight: 600;
+}
+
+/* =========================================================
+   STUDENT ACTIONS
+   ========================================================= */
+
+.student-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.student-actions button {
+  padding: 6px 10px;
+
+  border: 1px solid var(--auth-cyan);
+  border-radius: 5px;
+
+  background: transparent;
+
+  color: var(--auth-cyan);
+
+  font-size: 0.68rem;
+}
+
+.student-actions button:hover {
+  background: var(--auth-cyan);
+  color: #0c0a24;
+}
+
+.student-actions .delete-btn {
+  border-color: var(--auth-red);
+  color: var(--auth-red);
+}
+
+.student-actions .delete-btn:hover {
+  background: var(--auth-red);
+  color: #ffffff;
+}
+
+/* =========================================================
+   LOADING / EMPTY
+   ========================================================= */
+
+.loading-state,
+.empty-state {
+  padding: 45px 20px;
+
+  text-align: center;
+
+  color: var(--auth-muted);
+}
+
+.empty-state h3 {
+  margin: 0 0 8px;
+
+  color: #ffffff;
+}
+
+.empty-state p {
+  margin: 0;
+
+  font-size: 0.8rem;
+}
+
+/* =========================================================
+   DELETE MODAL
+   ========================================================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  background: rgba(4, 3, 15, 0.78);
+  backdrop-filter: blur(5px);
+}
+
+.confirm-modal {
+  width: 100%;
+  max-width: 390px;
+
+  padding: 25px;
+
+  border: 1px solid var(--dash-line);
+  border-radius: 14px;
+
+  background: var(--dash-card-2);
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+}
+
+.confirm-modal h2 {
+  margin: 0 0 10px;
+
+  color: #ffffff;
+}
+
+.confirm-modal p {
+  margin: 0;
+
+  color: var(--auth-muted);
+
+  line-height: 1.5;
+}
+
+.confirm-modal strong {
+  color: #ffffff;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  padding: 9px 16px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: #ffffff;
+}
+
+.modal-actions .delete-btn {
+  background: var(--auth-red);
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast {
+  position: fixed;
+
+  right: 25px;
+  bottom: 25px;
+
+  z-index: 2000;
+
+  max-width: 350px;
+
+  padding: 13px 18px;
+
+  border-radius: 8px;
+
+  font-size: 0.8rem;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.toast-success {
+  background: #153e31;
+  border: 1px solid var(--auth-green);
+  color: var(--auth-success);
+}
+
+.toast-error {
+  background: #421d29;
+  border: 1px solid var(--auth-red);
+  color: var(--auth-error);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .dashboard {
+    padding: 18px;
+  }
+
+  .dashboard-header {
+    padding: 18px;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .students-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .auth-container {
+    padding: 18px 12px;
+  }
+
+  .auth-form {
+    max-width: 100%;
+    padding: 30px 22px 25px;
+  }
+
+  .auth-form h2 {
+    font-size: 1.7rem;
+  }
+
+  .dashboard {
+    padding: 12px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .logout-btn {
+    width: 100%;
+  }
+
+  .dashboard-controls {
+    flex-direction: column;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .add-student-btn {
+    height: 42px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .students-section,
+  .student-form-card {
+    padding: 14px;
+  }
+
+  .student-card {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .student-info {
+    width: calc(100% - 60px);
+  }
+
+  .student-actions {
+    width: 100%;
+    margin-left: 58px;
+  }
+
+  .student-actions button {
+    flex: 1;
+  }
+
+  .toast {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .auth-form {
+    padding: 25px 17px 22px;
+  }
+
+  .auth-form h2 {
+    font-size: 1.5rem;
+  }
+
+  .student-actions {
+    margin-left: 0;
+  }
+}
